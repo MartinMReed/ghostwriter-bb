@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme id="ghostwriter" refId="defaultTheme" xmlns="http://metova.com/schemas/model">
+    <code>ghostwriter</code>
+    <application>
+        <name>ghostwriter</name>
+        <icon-sets>
+            <icon-set name="default">
+                <normal>icon.png</normal>
+                <rollover>icon.png</rollover>
+            </icon-set>
+        </icon-sets>
+    </application>
+    <!--variables>
+        
+    </variables-->
+    <classes>
+        <class name="default">
+            <style>
+                <attribute name="font-size">6</attribute>
+                <attribute name="font-antialias">standard</attribute>
+                <attribute name="font-family">BBClarity, BBSansSerif</attribute>
+            </style>
+        </class>
+        <class name="precision" ref="default">
+            <style>
+                <attribute name="color">rgb(255, 255, 255)</attribute>
+                <attribute name="border-color">rgb(102, 102, 102)</attribute>
+                <attribute name="focus-border-color">rgb(255, 255, 255)</attribute>
+            </style>
+        </class>
+        <class name="Mask">
+            <style>
+                <attribute name="background">1</attribute>
+                <attribute name="background-color">rgb( 0, 0, 0)</attribute><!-- called mask -->                
+                <attribute name="background-opacity">70</attribute>
+            </style>
+        </class>
+        <class name="IndicatorHeaderManager" ref="precision">
+            <style>
+                <attribute name="showClock">true</attribute>
+                <attribute name="showSignalIcon">true</attribute>
+                <attribute name="showBatteryIcon">true</attribute>
+                <attribute name="background">1</attribute>
+                <attribute name="padding-top">2</attribute>
+                <attribute name="padding-right">5</attribute>
+                <attribute name="padding-bottom">2</attribute>
+                <attribute name="padding-left">5</attribute>
+                <attribute name="background-color">rgb( 0, 0, 0)</attribute><!-- called mask -->                
+                <attribute name="background-opacity">70</attribute>
+            </style>
+            <images>
+                <image name="battery-default">battery-100.png</image>
+                <image name="battery-dead">battery-none.png</image>
+                <image name="signalSmall-default">signal-full.png</image>
+                <image name="signalSmall-dead">signal-dead.png</image>
+            </images>
+        </class>
+        <class name="AbstractContainer" ref="precision">
+            <style>
+                <attribute name="background">1</attribute>
+                <attribute name="background-color">rgb( 102, 102, 102)</attribute><!-- theme color i.e. #666666 -->
+            </style>
+            <images>
+                <image name="header"></image>
+                <image name="background" screen="*x240">bg-240-repeat-x.png</image>
+                <image name="background" screen="*x260">bg-260-repeat-x.png</image>
+                <image name="background" screen="*x320">bg-320-repeat-x.png</image>
+                <image name="background" screen="*x360">bg-360-repeat-x.png</image>
+            </images>
+        </class>
+        <class name="AbstractContainerProgress" ref="precision">
+            <style>
+                <attribute name="background">0</attribute>
+                <attribute name="background-arc">15</attribute><!-- drives the global mask -->
+                <attribute name="border-arc">15</attribute>
+            </style>
+            <images>
+                <image name="battery-default">battery-100.png</image>
+                <image name="battery-dead">battery-none.png</image>
+                <image name="signalSmall-default">signal-full.png</image>
+                <image name="signalSmall-dead">signal-dead.png</image>
+            </images>
+        </class>        
+        <class name="InfiniteProgress" ref="h4-special-margin">
+            <style>
+            </style>
+        </class>                
+        <class name="EditField" ref="precision">
+            <style>
+                <attribute name="color">rgb(255, 255, 255)</attribute>
+            </style>
+        </class>
+        <class name="HorizontalRule">
+            <style>
+                <attribute name="color">rgb(189, 189, 189)</attribute>
+            </style>
+        </class>
+        <class name="SplashScreen" ref="AbstractContainer">
+            <images>
+                <image name="progress">progress-80.gif</image>
+                <image name="splash-logo">splash-logo.png</image>
+                <image name="splash-poweredby">splash-poweredby.png</image>
+            </images>
+        </class>
+		<class name="AnimatedField-small">
+		    <style>
+		        <attribute name="frame-width">14</attribute>
+		        <attribute name="frame-height">14</attribute>
+		        <attribute name="frame-delay">100</attribute>
+		    </style>
+		    <images>
+		        <image name="composite">progress-strip-14.png</image>
+		    </images>
+		</class>
+        <class name="AnimatedField-medium" ref="AnimatedField-small">
+            <style>
+                <attribute name="frame-width">40</attribute>
+                <attribute name="frame-height">40</attribute>
+            </style>
+            <images>
+                <image name="composite">progress-strip-40.png</image>
+            </images>
+        </class>
+        <class name="AnimatedField-large" ref="AnimatedField-small">
+		    <style>
+		        <attribute name="frame-width">80</attribute>
+		        <attribute name="frame-height">80</attribute>
+		    </style>
+            <images>
+                <image name="composite">progress-strip-80.png</image>
+            </images>
+        </class>
+        <class name="TooltipManager" ref="precision">
+			<style>
+				<attribute name="overlap">5</attribute>
+				<attribute name="padding">5</attribute>
+                <attribute name="border">1</attribute>
+                <attribute name="background">1</attribute>
+			    <attribute name="background-opacity">40</attribute>
+			    <attribute name="background-arc">15</attribute>
+			    <attribute name="color">rgb(255, 255, 255)</attribute>
+                <attribute name="border-color">rgb(82, 82, 82)</attribute>
+			</style>
+		</class>           
+        <class name="BridgeButton" ref="h5">
+            <style>
+                <attribute name="background">1</attribute>
+                <attribute name="background-arc">15</attribute>
+                <attribute name="background-opacity">40</attribute>
+                <attribute name="focus-background">1</attribute>
+                <attribute name="focus-background-opacity">40</attribute>
+                <attribute name="focus-border">1</attribute>
+                <attribute name="color">rgb(189, 189, 189)</attribute>
+                <attribute name="focus-color">rgb(255, 255, 255)</attribute>
+                <attribute name="padding">10</attribute>
+                <attribute name="margin-top">5</attribute>
+                <attribute name="margin-bottom">5</attribute>
+            </style>
+        </class>
+        <class name="BridgeButton-right" ref="BridgeButton">
+            <style>
+                <attribute name="margin-right">10</attribute>
+            </style>
+        </class>
+        <class name="BridgeButton-all-width" ref="BridgeButton">
+            <style>
+                <attribute name="margin-right">10</attribute>
+                <attribute name="margin-bottom">0</attribute>
+            </style>
+        </class>
+        <class name="BridgeButton-all-width-margin-bottom" ref="BridgeButton-all-width">
+            <style>
+                <attribute name="margin-bottom">5</attribute>
+            </style>
+        </class>
+        <class name="TabFieldManager" ref="AbstractContainer">
+            <style>
+                <attribute name="font-size">5</attribute>
+                <attribute name="border">0</attribute>
+                <attribute name="focus-border">1</attribute>
+                <attribute name="border-color">rgb(0, 0, 0)</attribute>
+                <attribute name="focus-border-color">rgb(221, 221, 221)</attribute>                
+            </style>
+            <images>
+                <image name="background"></image>
+                <image name="arrow-left">arrow-left.png</image>
+                <image name="arrow-left-highlight">arrow-leftr.png</image>
+                <image name="arrow-right">arrow-right.png</image>
+                <image name="arrow-right-highlight">arrow-rightr.png</image>
+            </images>
+        </class>
+        <class name="SidebarManager" ref="precision">
+            <style>
+                <attribute name="background">1</attribute>
+                <attribute name="background-opacity">70</attribute>
+                <attribute name="background-arc">15</attribute>                
+                
+                <attribute name="border">1</attribute>
+                <attribute name="focus-background">1</attribute>
+                <attribute name="focus-border">1</attribute>
+                <attribute name="padding">10</attribute>
+                <attribute name="padding-right">0</attribute>
+            </style>
+            <images>
+                <image name="email">icon-email.png</image>
+                <image name="phone">icon-phone.png</image>
+            </images>
+        </class>
+        <class name="SidebarSection" ref="h5">
+            <style>
+                <attribute name="background">1</attribute>
+                <attribute name="background-arc">15</attribute>
+                <attribute name="background-opacity">40</attribute>
+                <attribute name="focus-background">1</attribute>
+                <attribute name="focus-background-opacity">40</attribute>
+                <attribute name="focus-border">1</attribute>
+                <attribute name="margin-top">5</attribute>
+                <attribute name="margin-left">10</attribute>
+                <attribute name="padding">10</attribute>
+            </style>
+        </class>
+        <class name="ChoiceField" ref="h4">
+            <style>
+                <attribute name="margin-top">5</attribute>
+                <attribute name="color">rgb(255, 255, 255)</attribute>
+            </style>
+        </class>
+        <class name="ChoiceField-right" ref="ChoiceField">
+            <style>
+                <attribute name="margin-left">0</attribute>
+                <attribute name="margin-right">10</attribute>
+            </style>
+        </class>
+        <class name="TextBoxField" ref="h4">
+            <style>
+                <attribute name="background">1</attribute>
+                <attribute name="background-arc">15</attribute>
+                <attribute name="background-opacity">40</attribute>
+                
+                <attribute name="focus-background">1</attribute>
+                <attribute name="focus-background-opacity">40</attribute>
+                
+                <attribute name="focus-border">1</attribute>
+                
+                <attribute name="border">1</attribute>
+                <attribute name="border-arc">15</attribute>
+                
+                <attribute name="margin-top">5</attribute>
+                <attribute name="margin-right">10</attribute>
+                <attribute name="padding">5</attribute>
+            </style>
+        </class>
+        <class name="CheckboxField" ref="h4">
+            <style>
+                <attribute name="margin-top">5</attribute>
+                <attribute name="margin-right">10</attribute>
+            </style>
+        </class>
+        <class name="TextBoxField-special-margin" ref="TextBoxField">
+            <style>
+                <attribute name="margin-top">2</attribute>
+                <attribute name="margin-right">2</attribute>
+                <attribute name="margin-bottom">2</attribute>
+            </style>
+        </class>
+        <class name="TextAreaField" ref="TextBoxField">
+            <images>
+                <image name="arrow-up">arrow-left.png</image>
+                <image name="arrow-down">arrow-right.png</image>
+            </images>
+        </class>
+        <class name="disabled-preference">
+            <style>
+                <attribute name="color">rgb(89,89,89)</attribute>
+            </style>
+        </class>
+        <class name="h1" ref="precision">
+            <style>
+                <attribute name="font-size">8</attribute>
+                <attribute name="font-weight">bold</attribute>
+                <attribute name="margin-top">3</attribute>
+                <attribute name="margin-bottom">3</attribute>
+                <attribute name="margin-left">10</attribute>
+            </style>
+        </class>
+        <class name="h2" ref="h1">
+            <style>
+                <attribute name="font-size">7</attribute>
+                <attribute name="margin-top">2</attribute>
+                <attribute name="margin-bottom">2</attribute>
+            </style>
+        </class>
+        <class name="h3" ref="h2">
+            <style>
+                <attribute name="font-size">6</attribute>
+                <attribute name="margin-top">1</attribute>
+                <attribute name="margin-bottom">1</attribute>
+            </style>
+        </class>
+        <class name="h3-margin-top" ref="h3">
+            <style>
+                <attribute name="margin-top">5</attribute>
+            </style>
+        </class>
+        <class name="h3-special-margin" ref="h3-margin-top">
+            <style>
+                <attribute name="margin-left">2</attribute>
+            </style>
+        </class>
+        <class name="h3-special-no-margin-top" ref="h3-special-margin">
+            <style>
+                <attribute name="margin-top">0</attribute>
+                <attribute name="margin-left">2</attribute>
+            </style>
+        </class>
+        <class name="h4" ref="h3"><!-- normal font equivalent -->
+            <style>
+                <attribute name="font-weight">normal</attribute>
+                <attribute name="margin-top">0</attribute>
+                <attribute name="margin-bottom">0</attribute>
+            </style>
+        </class>
+        <class name="h4-margin-right" ref="h4">
+            <style>
+                <attribute name="margin-right">10</attribute>
+            </style>
+        </class>
+        <class name="h4-special-margin" ref="h4-margin-right">
+            <style>
+                <attribute name="margin-top">5</attribute>
+                <attribute name="margin-bottom">5</attribute>
+            </style>
+        </class>
+        <class name="h5" ref="h4">
+            <style>
+                <attribute name="font-size">5</attribute>
+                <attribute name="font-weight">bold</attribute>
+            </style>
+        </class>
+        <class name="ClockField" ref="h5" />
+        <class name="ActionLabel" ref="h5">
+            <images>
+                <image name="icon">arrow-right.png</image>
+                <image name="iconr">arrow-rightr.png</image>
+            </images>
+        </class>
+        <class name="h5-no-margin-left" ref="h5">
+            <style>
+                <attribute name="margin-left">0</attribute>
+            </style>
+        </class>
+        <class name="h6" ref="h5">
+            <style>
+                <attribute name="font-weight">normal</attribute>
+            </style>
+        </class>
+        <class name="h6-no-margin-left" ref="h6">
+            <style>
+                <attribute name="margin-left">0</attribute>
+            </style>
+        </class>
+        <class name="h6-gray" ref="h6">
+            <style>
+                <attribute name="color">rgb(165, 173, 165)</attribute>
+            </style>
+        </class>
+        <class name="LabelField-error" ref="LabelField-notification">
+            <style>
+                <attribute name="color">rgb(255, 0, 0)</attribute>
+            </style>
+        </class>
+        <class name="ThemedProgressBar" ref="precision">
+            <images>
+                <image name="left">progress-fill-left.png</image>
+                <image name="fill">progress-fill.png</image>
+                <image name="right">progress-fill-right.png</image>
+                <image name="left-highlight">progress-fill-left-h.png</image>
+                <image name="fill-highlight">progress-fill-h.png</image>
+                <image name="right-highlight">progress-fill-right-h.png</image>
+            </images>
+        </class>
+        <class name="UnderlinedActionLabel" ref="h6">
+            <style>
+                <attribute name="text-decoration">underline</attribute>                
+                <attribute name="background">0</attribute>                
+                <attribute name="focus-background">0</attribute>                
+            </style>
+            <images>
+            </images>
+        </class>                
+        <class name="ActivityPainter" ref="ContactPainter">
+            <style>
+            </style>
+            <images>
+                <image name="note">icon-activity-note.png</image>
+                <image name="email">icon-activity-email.png</image>
+                <image name="task">icon-activity-task.png</image>
+            </images>
+        </class>
+        <class name="ActivityPainter-name" ref="h3">
+            <style>
+                <attribute name="font-size">6</attribute>
+                <attribute name="margin-top">2</attribute>                
+                <attribute name="margin-bottom">2</attribute>
+                <attribute name="margin-left">3</attribute>                
+                <attribute name="margin-right">3</attribute>                                
+            </style>
+        </class>
+        <class name="ActivityPainter-detail" ref="h6">
+            <style>
+                <attribute name="margin-top">2</attribute>                
+                <attribute name="margin-bottom">2</attribute>
+                <attribute name="margin-left">3</attribute>                
+                <attribute name="margin-right">3</attribute>                                
+                <attribute name="color">rgb(189, 189, 189)</attribute>
+            </style>
+        </class>        
+        <class name="ContactPainter" ref="precision">
+            <style>
+                <attribute name="background">1</attribute>
+                <attribute name="background-arc">15</attribute>
+                <attribute name="background-opacity">40</attribute>
+                <attribute name="focus-background">1</attribute>
+                <attribute name="focus-background-opacity">40</attribute>
+                <attribute name="focus-border">1</attribute>
+                <attribute name="border">1</attribute>
+                <attribute name="padding">2</attribute>
+                <attribute name="focus-color">rgb(255, 255, 255)</attribute>
+            </style>
+            <images>
+                <image name="person">icon-contact.png</image>
+                <image name="company">icon-company.png</image>
+            </images>
+        </class>
+        <class name="ContactPainter-name" ref="h3">
+            <style>
+            </style>
+        </class>
+        <class name="ContactPainter-detail" ref="h6">
+            <style>
+                <attribute name="color">rgb(189, 189, 189)</attribute>
+            </style>
+        </class>
+        <class name="icon" ref="BridgeButton">
+            <style>
+                <attribute name="border">0</attribute>
+                <attribute name="padding">0</attribute>
+                <attribute name="margin-top">0</attribute>
+                <attribute name="margin-bottom">0</attribute>
+            </style>
+        </class>
+        <class name="dashboard" ref="icon">
+            <images>
+                <image name="normal">icon-dash.png</image>
+                <image name="hover">iconr-dash.png</image>
+            </images>
+        </class>
+        <class name="tasks" ref="icon">
+            <images>
+                <image name="normal">icon-tasks.png</image>
+                <image name="hover">iconr-tasks.png</image>
+            </images>
+        </class>
+        <class name="contact-list" ref="icon">
+            <images>
+                <image name="normal">icon-contacts.png</image>
+                <image name="hover">iconr-contacts.png</image>
+            </images>
+        </class>
+        <class name="contact-person" ref="icon">
+            <images>
+                <image name="normal">icon-contact.png</image>
+                <image name="hover">iconr-contact.png</image>
+            </images>
+        </class>
+        <class name="contact-company" ref="icon">
+            <images>
+                <image name="normal">icon-company.png</image>
+                <image name="hover">iconr-company.png</image>
+            </images>
+        </class>
+        <class name="history" ref="icon">
+            <images>
+                <image name="normal">icon-history.png</image>
+                <image name="hover">iconr-history.png</image>
+            </images>
+        </class>
+        <class name="edit" ref="icon">
+            <images>
+                <image name="normal">icon-edit.png</image>
+                <image name="hover">iconr-edit.png</image>
+            </images>
+        </class>
+        <class name="note" ref="icon">
+            <images>
+                <image name="normal">icon-note.png</image>
+                <image name="hover">iconr-note.png</image>
+            </images>
+        </class>
+    </classes>
+</theme>
